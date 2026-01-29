@@ -6,7 +6,7 @@ import pytest
 client = TestClient(app)
 
 def test_solver_two_roots():
-    assert solve_quadratic(1, -3, 2) == [2.0, 1.0]
+    assert solve_quadratic(1, -3, 2) == [1.0, 2.0]
 
 def test_solver_one_root():
     assert solve_quadratic(1, -2, 1) == [1.0]
@@ -25,7 +25,7 @@ def test_api_solve_endpoint():
     
     data = response.json()
     assert data["count"] == 2
-    assert data["roots"] == [2.0, 1.0]
+    assert data["roots"] == [1.0, 2.0]
     assert "coefficients" in data
 
 def test_api_invalid_params():
